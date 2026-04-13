@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+
+<!-- Título da aba do navegador -->
+<title>Login - SenseTech</title>
+
+<style>
+
+/* RESET PADRÃO (remove espaçamentos padrão do navegador) */
+* {
+  margin: 0; /* remove margens */
+  padding: 0; /* remove espaçamentos internos */
+  box-sizing: border-box; /* faz width/height incluir padding e borda */
+  font-family: "Segoe UI", sans-serif; /* define a fonte */
+}
+
+/* CORPO DA PÁGINA */
+
+
+
+body {
+  height: 100vh;
+
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("./fundo.jpg.jpeg");
+
+  background-size: cover;
+
+  background-position: center top;   /* topo */
+  /* background-position: center bottom; */ /* base */
+  /* background-position: left center; */   /* esquerda */
+  /* background-position: right center; */  /* direita */
+
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTAINER PRINCIPAL (caixa branca do login) */
+.login-container {
+  display: flex;
+  width: 800px;
+  height: 450px;
+
+  /* efeito vidro */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+
+  border-radius: 15px;
+  overflow: hidden;
+
+  /* borda suave */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  /* sombra */
+  box-shadow: 0 10px 40px rgba(211, 191, 7, 0.829);
+}
+
+/* LADO ESQUERDO (parte escura com SENSETECH) */
+.left {
+  width: 40%;
+  
+  /* FUNDO DO BLOCO ESQUERDO */
+  background: linear-gradient(180deg, #2c1874, #1d1f7a);
+
+  color: #fffb00; /* cor do texto  */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* TEXTO "SENSETECH" */
+.left h1 {
+  font-size: 28px;
+  /* ⚠️ A COR DO SENSETECH ESTÁ AQUI INDIRETAMENTE:
+     Ele herda a cor branca definida em .left (color: white) */
+}
+
+/* TEXTO MENOR ABAIXO */
+.left p {
+  font-size: 14px;
+  opacity: 0.7; /* deixa o texto mais apagado */
+}
+
+/* LADO DIREITO (formulário) */
+.right {
+  width: 60%;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* TÍTULO "Cadastro de Usuario" */ 
+.right h2 { margin-bottom: 20px;
+   color: #e9e507; /* cor do título */ }
+
+/* GRUPO DE INPUT */
+.input-group {
+  margin-bottom: 15px;
+}
+
+/* LABEL (Email / Senha) */
+.input-group label {
+  font-size: 13px;
+  color: #ffffff;
+}
+
+/* CAMPOS DE INPUT */
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* EFEITO AO CLICAR NO INPUT */
+.input-group input:focus {
+  border-color: #00b4d8; /* muda a borda */
+  box-shadow: 0 0 8px rgba(0,180,216,0.5); /* brilho */
+}
+
+/* BOTÃO DE LOGIN */
+.login-btn {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+
+  /* COR DO BOTÃO (gradiente azul) */
+  background: linear-gradient(90deg, #e9e50e, #2c1874);
+
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* EFEITO HOVER (quando passa o mouse) */
+.login-btn:hover {
+  transform: scale(1.03); /* aumenta levemente */
+  box-shadow: 0 0 15px rgba(0,180,216,0.6);
+}
+
+/* TEXTO EXTRA (esqueceu senha) */
+.extra {
+  margin-top: 15px;
+  font-size: 12px;
+  color: hsl(0, 100%, 100%);
+}
+
+/* LINK */
+.extra a {
+  color: #ffe602;
+  text-decoration: none;
+}
+
+/* HOVER DO LINK */
+.extra a:hover {
+  text-decoration: underline;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- CONTAINER PRINCIPAL -->
+<div class="login-container">
+
+  <!-- LADO ESQUERDO -->
+  <div class="left">
+    <h1>SENSETECH</h1>
+    <p>Análise e Desenvolvimento de Sistemas</p>
+  </div>
+
+  <!-- LADO DIREITO -->
+  <div class="right">
+    <h2>CADASTRO DE USUÁRIO</h2>
+
+    <form>
+      <div class="input-group">
+        <label>Usuário</label>
+        <input type="email" placeholder="Digite seu Usuário" required>
+      </div>
+
+      <div class="input-group">
+        <label>Senha</label>
+        <input type="password" placeholder="Digite sua senha" required>
+      </div>
+
+      <button type="button" class="login-btn" onclick="entrar()">Entrar</button>
+    </form>
+
+    <div class="extra">
+      <p>Esqueceu a senha? <a href="#">Recuperar</a></p>
+      </div>
+</div>
+
+<script>
+function entrar() {
+  window.location.href = "home.html";
+}
+</script>
+
+</body>
+</html>

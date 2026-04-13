@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard - SenseTech</title>
+
+<style>
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* LAYOUT */
+body {
+  display: flex;
+  height: 100vh;
+  background: #000c56;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 230px;
+  background: linear-gradient(180deg, #222a0f, #2c1874);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #ffe602;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #cbd5e1;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.menu a:hover,
+.menu a.active {
+  background: #d2ee4731;
+  color: white;
+}
+
+/* CONTEÚDO */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* TOPO */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.top h1 {
+  color: #ffe602;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.card p {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 15px;
+}
+
+.chart, .donut, .table {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.line {
+  height: 200px;
+  background: linear-gradient(to top, #2a37f59e, transparent);
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(#ffe602 70%, #e2e8f0 30%);
+  margin: 20px auto;
+}
+
+table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+
+/* 🔥 NOVO: CONTROLE DE PÁGINAS */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* 🔥 TELA EM BRANCO */
+.blank {
+  background: white;
+  height: 400px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="logo">SENSETECH</div>
+
+  <div class="menu">
+    <a onclick="showPage('dashboard')" class="active">Dashboard</a>
+    <a onclick="showPage('relatorios')">Relatórios</a>
+    <a onclick="showPage('quemSomos')">Quem Somos</a>
+  </div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="main">
+
+  <!-- DASHBOARD (INALTERADO) -->
+  <div id="dashboard" class="page active">
+
+    <div class="top">
+      <h1>DASHBOARD</h1>
+      <div class="icons">
+        <div class="icon"></div>
+        <div class="icon"></div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>TOTAL DE CLIENTES</h3>
+        <p>3.606</p>
+      </div>
+
+      <div class="card">
+        <h3>ENTRADAS DE HOJE</h3>
+        <p>32</p>
+      </div>
+
+      <div class="card">
+        <h3>PICO DE MOVIMENTO</h3>
+        <p>18:00</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="chart">
+        <h3>FLUXO DE PESSOAS POR HORÁRIO</h3>
+        <div class="line"></div>
+      </div>
+
+      <div class="donut">
+        <h3>HORARIOS MAIS MOVIMENTADOS</h3>
+        <div class="circle"></div>
+      </div>
+
+      <div class="chart">
+        <h3>HORARIOS MAIS MOVIMENTADOS</h3>
+        <div class="line"></div>
+      </div>
+
+      <div class="table">
+        <h3>REGISTRO DE ENTRADAS</h3>
+        <table>
+          <tr><td>08:00 - 20:00</td><td>10</td></tr>
+          <tr><td>09:00 - 20:00</td><td>5</td></tr>
+          <tr><td>10:00 - 20:00</td><td>4</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RELATÓRIOS (EM BRANCO) -->
+  <div id="relatorios" class="page">
+    <h1>Relatórios</h1>
+    <div class="blank"></div>
+  </div>
+
+  <!-- QUEM SOMOS (EM BRANCO) -->
+  <div id="quemSomos" class="page">
+    <h1>Quem Somos</h1>
+    <div class="blank"></div>
+  </div>
+
+</div>
+
+<script>
+
+function showPage(pageId) {
+
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+  });
+
+  document.getElementById(pageId).classList.add('active');
+
+  document.querySelectorAll('.menu a').forEach(a => {
+    a.classList.remove('active');
+  });
+
+  event.target.classList.add('active');
+}
+
+</script>
+
+</body>
+</html>
